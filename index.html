@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    function odliczanie()
+    {
+        var dzisiaj = new Date();
+
+        var dzien = dzisiaj.getDate();
+        if (dzien<10) dzien = "0" + dzien;
+        var miesiac = dzisiaj.getMonth()+1;
+        if (miesiac<10) miesiac = "0" + miesiac;
+        var rok = dzisiaj.getFullYear();
+    
+        var godzina = dzisiaj.getHours();
+        if (godzina<10) godzina = "0" + godzina;
+        var minuta = dzisiaj.getMinutes();
+        if (minuta<10) minuta = "0" + minuta;
+        var sekunda = dzisiaj.getSeconds();
+        if (sekunda<10) sekunda = "0" + sekunda;
+
+        document.getElementById("zegar").innerHTML = dzien + "/" + miesiac + "/" + rok + " " + " " + godzina + ":" + minuta + ":" + sekunda;
+
+        setTimeout("odliczanie()", 1000);
+    }
+        
+
+
+    </script>
+</head>
+<body onload="odliczanie();">
+    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6" align="center" id="zegar"></div>
+</body>
+</html>
